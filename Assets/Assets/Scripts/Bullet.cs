@@ -24,7 +24,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameObject.tag == "Vehicle") {
+        move();
+    }
+
+    void move()
+    {
+        if (gameObject.tag == "Vehicle")
+        {
             Vector3 position = gameObject.GetComponent<Transform>().position;
             position[1] = 0;
             gameObject.GetComponent<Transform>().position = position;
@@ -32,18 +38,18 @@ public class Bullet : MonoBehaviour
         if (gameObject.GetComponent<Transform>().position[2] > DeleteZMax || gameObject.GetComponent<Transform>().position[2] < DeleteZMin ||
             gameObject.GetComponent<Transform>().position[0] > DeleteXMax || gameObject.GetComponent<Transform>().position[0] < DeleteXMin)
             Destroy(gameObject);
-            
-            try
-            {
-                Vector3 distanceVector = this.boulder.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position;
-                Vector3 MovementVector = (distanceVector / distanceVector.magnitude) * Velocity;  // multiply unit vector to velocity;
+
+        try
+        {
+            Vector3 distanceVector = this.boulder.GetComponent<Transform>().position - gameObject.GetComponent<Transform>().position;
+            Vector3 MovementVector = (distanceVector / distanceVector.magnitude) * Velocity;  // multiply unit vector to velocity;
             last_vector = MovementVector;
             gameObject.GetComponent<Transform>().LookAt(this.boulder.GetComponent<Transform>());
-                gameObject.GetComponent<Transform>().position += MovementVector;
-                return;
-            }
-            catch (MissingReferenceException e)
-            {
+            gameObject.GetComponent<Transform>().position += MovementVector;
+            return;
+        }
+        catch (MissingReferenceException e)
+        {
 
             gameObject.GetComponent<Transform>().position += last_vector;
         }
@@ -76,6 +82,10 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.GetComponent<Health>().health -= damage;
+        Destroy(gameObject);
+    }
+    private void OnBecameInvisible()
+    {
         Destroy(gameObject);
     }
 }

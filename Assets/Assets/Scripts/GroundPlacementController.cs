@@ -11,6 +11,22 @@ public class GroundPlacementController : MonoBehaviour
     private float mouseWheelRotation;
     private int currentPrefabIndex = -1;
 
+    private bool started;
+    GameModeSwitcher switcher;
+
+
+    private void Start()
+    {
+        switcher = GameObject.FindGameObjectWithTag("GameSwitch").GetComponent<GameModeSwitcher>();
+        started = false;
+        switcher.start += onEnterGameMode;
+    }
+
+    private void onEnterGameMode(object sender, EventArgs e)
+    {
+        gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         HandleNewObjectHotkey();
@@ -84,4 +100,6 @@ public class GroundPlacementController : MonoBehaviour
             currentPlaceableObject = null;
         }
     }
+
+    
 }

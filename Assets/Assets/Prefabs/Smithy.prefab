@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 597838883352683795}
   - component: {fileID: 28410018308045053}
   - component: {fileID: 7047187505694845342}
+  - component: {fileID: 8694465553940772313}
   m_Layer: 0
   m_Name: Smithy
   m_TagString: Untagged
@@ -183,6 +184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &8694465553940772313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409960506340793007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf6215bce5341341858c9a108188c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Base: {fileID: 1409960506340793007}
 --- !u!1 &5454854542581205627
 GameObject:
   m_ObjectHideFlags: 0

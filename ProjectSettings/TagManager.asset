@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Vehicle
+  - Boulder
+  - Vehicle_Spawner
+  - Projectile_spawner
+  - GameSwitch
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class Rolling : MonoBehaviour
     public int size;
     void Start()
     {   
-        this.size = UnityEngine.Random.Range(4, 10);
+        this.size = UnityEngine.Random.Range(10, 20);
         target.localScale = new Vector3(this.size,this.size,this.size);
         target.position += new Vector3(UnityEngine.Random.Range(-50, 51),0,0);
     }
@@ -21,7 +21,7 @@ public class Rolling : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(this.size);
+    
         rb.AddForce(Vector3.back * force * (1 / target.GetComponent<Transform>().localScale[0]));
         //rb.AddForce(Vector3.back * force * (1 / this.size));
     }
