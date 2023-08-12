@@ -21,5 +21,6 @@ public class GameModeSwitcher : MonoBehaviour
     public void ButtonPressed()
     {
         start?.Invoke(this, EventArgs.Empty);
+        gameObject.SetActive(false);
     }  
 }
